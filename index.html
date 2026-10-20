@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer"><title>議事録デモ</title>
+<style>body{font-family:system-ui,sans-serif;margin:24px;color:#172033;background:#f6f8fb}main{max-width:740px;margin:auto;background:white;padding:28px;border:1px solid #ddd;border-radius:16px}button{padding:10px 18px;margin:8px 8px 8px 0;border:0;border-radius:8px;background:#2563eb;color:white;cursor:pointer}button:disabled{opacity:.5;cursor:default}p{line-height:1.7}input[type=file]{display:block;margin:20px 0}#status{white-space:pre-wrap}small{color:#526070}li{margin:10px 0}.hidden{display:none}</style>
+<script src="config.js" defer></script><script src="app.js" defer></script></head>
+<body><main><h1>議事録デモ</h1><p>音声から文字起こしと議事録を作成します。招待された方のみ利用できます。</p>
+<button id="login">ログイン</button><button id="logout" disabled>ログアウト</button>
+<section id="work" class="hidden"><p>AAC形式のM4A、10分以内・20MiB以内。アップロード受付は1人1日3回、全体で1日10回までです（日本時間）。未完了のアップロードも回数に含まれます。</p>
+<p><small>音声はAWSに保存し、OpenAIに送信して処理します。個人情報や機密情報を含まないサンプルを使用し、録音参加者の同意を得てください。</small></p>
+<input id="file" type="file" accept=".m4a,audio/mp4"><label><input id="consent" type="checkbox">音声の外部送信に同意します</label><br>
+<button id="upload">アップロードして作成</button><button id="check" disabled>結果を再確認</button>
+<p><small>結果の参照は受付から7日間です。利用期限や回数の変更は管理者にご相談ください。</small></p></section>
+<p id="status" role="status" aria-live="polite">準備中…</p><ul id="files"></ul></main></body></html>
